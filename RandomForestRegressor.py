@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Reading the data
-df=pd.read_csv('D:\Docs\DS\AQI\Data\Real-Data/Real_Combine.csv')
+df=pd.read_csv('Real_Combine.csv')
 # Checking for null values
 sns.heatmap(df.isnull(),yticklabels=False,cbar=False,cmap='viridis')
 # Since there are very few null values, we can drop them
@@ -33,7 +33,7 @@ plt.show()
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
-# Part 2: Making random froest
+# Part 2: Making random forest
 
 # Importing random forest
 from sklearn.ensemble import RandomForestRegressor
@@ -45,7 +45,7 @@ regressor.fit(X_train,y_train)
 # Printing the coeficient of determination for training and tsting datasets
 print("Coefficient of determination R^2 <-- on train set: {}".format(regressor.score(X_train, y_train)))
 print("Coefficient of determination R^2 <-- on train set: {}".format(regressor.score(X_test, y_test)))
-# Training set Rsguare is 0.97
+# Training set Rsquare is 0.97
 # Testing set RMS is 0.79 which makes it not very accurate
 
 # Importing the cross validation score
